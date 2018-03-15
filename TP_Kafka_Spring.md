@@ -172,11 +172,14 @@ spring:
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2017.PNG?raw=true)
 
 #### Créer un topic "killBroker" avec 2 brokers de réplication 2
+
+Création du topic
 ```
 C:\Users\Fitec\kafka_2.11-1.0.1>bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 2 --partitions 2 --topic killBroker
 Created topic "killBroker".
 ```
 
+Liste de topic
 ```
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --list --zookeeper localhost:2181
 KafkaMongoDB
@@ -190,6 +193,7 @@ topic-in
 topic-out
 ```
 
+Ici, le topic a aucun server leader. Cela signifie qu'un des serveurs n'a pas été lancé.
 ```
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic killBroker
 Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
@@ -197,4 +201,18 @@ Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
         Topic: killBroker       Partition: 1    Leader: none    Replicas: 0,1   Isr:
 ```
 
+Après démarrage du 2ème serveur 
+```
+ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic killBroker
+Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
+        Topic: killBroker       Partition: 0    Leader: 1       Replicas: 1,0   Isr: 1,0
+        Topic: killBroker       Partition: 1    Leader: 1       Replicas: 0,1   Isr: 1,0
+```
 
+#### Comment faire marcher les scripts
+
+1. Run les deux programmes java Producer puis Consumer
+2. Rajouter une donnée via Swagger
+3. Regarder la bonne insertion des données sur l'interface MongoDB
+4. Tuer un serveur (ctrl+c)
+5. Re-regarder l'interface de MongoDB => les données continuent d'être insérées même si un des broker est shutdown
