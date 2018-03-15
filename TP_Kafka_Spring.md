@@ -65,7 +65,7 @@ server:
   port: 8077
 ```
 
-### Visualisation dans Swagger : http://localhost:8077/swagger-ui.html
+### Rajouter une donnée via Swagger : http://localhost:8077/swagger-ui.html
 Envoyer des données via le swagger en modifiant le champs Parameters puis cliquer sur "Try it out"
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2001.PNG?raw=true)
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2002.PNG?raw=true)
@@ -211,7 +211,7 @@ Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
 
 #### Comment faire marcher les scripts
 
-1. Run les deux programmes java Producer puis Consumer
+1. Run les deux programmes java "Producer" puis "Consumer"
 2. Rajouter une donnée via Swagger
 3. Regarder la bonne insertion des données sur l'interface MongoDB
 4. Tuer un serveur (ctrl+c)
