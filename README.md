@@ -11,11 +11,6 @@
 ## TP3 en machine locale : [dossier JavaProducerConsumer](https://github.com/ctith/Kafka/tree/master/JavaProducerConsumer)
 
 [Voir TP](https://github.com/ctith/Kafka/blob/master/TP_Kafka_Java.md)
-
-> Lancer successivement les deux scripts java 
-  - ProducerMain et ConsumerBasic : écoute basique des messages écrits en console
-  - KafkaConsumerMainJson et ProducerJson : écoute des documents JSON
-  - Kafka Stream : à tester (incompatibilité SLF4J: Class path contains multiple SLF4J bindings avec IntelliJ Enterprise) 
   
 ## TP4 en machine locale : [dossier formationspringkafka](https://github.com/ctith/Kafka/tree/master/formationspringkafka)
 
