@@ -81,7 +81,11 @@ Envoyer des données via le swagger en modifiant le champs Parameters puis cliqu
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%20050.PNG?raw=true)
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2005.PNG?raw=true)
 
+--------------------------------
+
 ## Tests de performance
+
+-------------------------------
 
 ### Flooding
 Création d'une boucle pour envoyer 100 000 requêtes d'insertion de données à MongoDB
@@ -92,6 +96,8 @@ WARN
 
 Visualisation des données sur MongoDB
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2013.PNG?raw=true)
+
+-----------------------------
 
 ### Fault-tolerance
 
