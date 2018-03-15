@@ -148,10 +148,10 @@ ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ vi config//server-2.properti
 #### Démarrer le broker 1 et 2
 ```
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-server-start.sh config/server-1.properties &
-\[1\] 1827
+[1] 1827
 
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-server-start.sh config/server-2.properties &
-\[2\] 1909
+[2] 1909
 ```
 #### Création d’un nouveau topic “my-replicated-topic” avec un facteur de réplication de 3
 ```
@@ -162,13 +162,13 @@ ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --create
 ```
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic test
 
-Topic:test \*\*PartitionCount:1\*\* \*\*ReplicationFactor:1\*\* Configs:
-Topic: test Partition: 0 \*\*Leader: 0\*\* \*\*Replicas: 0\*\* Isr: 0
+Topic:test PartitionCount:1 ReplicationFactor:1 Configs:
+Topic: test Partition: 0 Leader: 0 Replicas: 0 Isr: 0
 
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
 
-Topic:my-replicated-topic \*\*PartitionCount:1\*\* \*\*ReplicationFactor:3\*\* Configs:
-Topic: my-replicated-topic Partition: 0 \*\*Leader: 1\*\* Replicas: 0,1,2 \*\*Isr: 1,2,0\*\*
+Topic:my-replicated-topic PartitionCount:1 ReplicationFactor:3 Configs:
+Topic: my-replicated-topic Partition: 0 Leader: 1 Replicas: 0,1,2 Isr: 1,2,0
 ```
 #### Producer : Ecrire des messages sur le topic “my-replicated-topic”
 
@@ -177,8 +177,6 @@ ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-console-producer.s
 >hellooooooo
 
 ```
-
-  
 
 #### Consumer : Recevoir les messages du topic “my-replicated-topic”
 ```
