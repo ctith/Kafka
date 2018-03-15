@@ -1,0 +1,11 @@
+com\formation\kafka\consumer\configuration\technical\ContainersConfiguration.class
+com\formation\kafka\consumer\service\CarService.class
+com\formation\kafka\consumer\configuration\properties\TopicProperties.class
+com\formation\kafka\consumer\configuration\technical\ConsumersConfiguration.class
+com\formation\kafka\consumer\configuration\properties\KafkaProperties.class
+com\formation\kafka\consumer\configuration\technical\BeanConfiguration.class
+com\formation\kafka\consumer\consumer\CarConsumer.class
+com\formation\kafka\consumer\service\impl\CarServiceImpl.class
+com\formation\kafka\consumer\ConsumerApplication.class
+com\formation\kafka\consumer\entity\CarEntity.class
+com\formation\kafka\consumer\repository\CarRepository.class

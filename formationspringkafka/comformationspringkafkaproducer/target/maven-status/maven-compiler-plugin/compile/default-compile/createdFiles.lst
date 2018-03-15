@@ -1,0 +1,11 @@
+com\formation\kafka\formationkafka\configuration\GlobalConfiguration.class
+com\formation\kafka\formationkafka\configuration\SwaggerConfiguration.class
+com\formation\kafka\formationkafka\producer\Sender.class
+com\formation\kafka\formationkafka\service\impl\CarServiceImpl.class
+com\formation\kafka\formationkafka\mapper\CarDtoToCarMessageMapper.class
+com\formation\kafka\formationkafka\configuration\SwaggerProperties.class
+com\formation\kafka\formationkafka\dto\CarDto.class
+com\formation\kafka\formationkafka\configuration\SenderConfiguration.class
+com\formation\kafka\formationkafka\FormationkafkaApplication.class
+com\formation\kafka\formationkafka\service\CarService.class
+com\formation\kafka\formationkafka\controller\CarController.class

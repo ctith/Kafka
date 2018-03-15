@@ -1,0 +1,16 @@
+server:
+  port: 8000
+
+kafka:
+  host: localhost
+  port: 9092
+  topic:
+    car: test
+    default-group-id: default-group-id
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
