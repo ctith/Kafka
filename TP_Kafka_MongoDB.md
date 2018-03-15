@@ -94,11 +94,24 @@ Visualisation des données sur MongoDB
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2013.PNG?raw=true)
 
 ### Fault-tolerance
+
+#### Configurer 2 brokers 
+
+[voir TP initiation](https://github.com/ctith/Kafka/blob/master/TP_machine_locale.md)
+> Configurer fichier server-2.properties
+> Lancer le server dans un terminal
+
+#### Créer un topic "killBroker" avec 2 brokers de réplication 2
+```
+C:\Users\Fitec\kafka_2.11-1.0.1>bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 2 --partitions 2 --topic killBroker
+Created topic "killBroker".
+```
+
 #### Modifier le fichier application.yml (producer) en précisant le port des brokers
 ```
 kafka:
   bootstrap-servers: localhost:9092, localhost:9093
-  topic: KafkaMongoDB
+  topic: killBroker
 
 
 swagger:
@@ -122,7 +135,7 @@ kafka:
   host: localhost:9092, localhost:9093
   #port: 9092
   topic:
-    car: KafkaMongoDB
+    car: killBroker
     default-group-id: default-group-id
 
 spring:
@@ -130,7 +143,7 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: car-test
+      database: kill-test
 ```
 
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2016.PNG?raw=true)
