@@ -94,3 +94,62 @@ Visualisation des données sur MongoDB
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2013.PNG?raw=true)
 
 ### Fault-tolerance
+#### Modifier le fichier application.yml (producer) en précisant le port des brokers
+```
+kafka:
+  bootstrap-servers: localhost:9092, localhost:9093
+  topic: KafkaMongoDB
+
+
+swagger:
+  title: Formation KAFKA
+  description: Swagger Documentation api for Formation KAFKA PRODUCER application
+  version: @project.version@
+  enabled: true
+
+server:
+  port: 8077
+```
+
+![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2015.PNG?raw=true)
+
+#### Modifier le fichier application.yaml (consumer) en précisant le port des brokers
+```
+server:
+  port: 8000
+
+kafka:
+  host: localhost:9092, localhost:9093
+  #port: 9092
+  topic:
+    car: KafkaMongoDB
+    default-group-id: default-group-id
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: car-test
+```
+
+![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2016.PNG?raw=true)
+
+#### Modifier le fichier ContainersConfiguration.java 
+> C:\Users\Fitec\IdeaProjects\formationspringkafka\comformationspringkafkaconsumer\src\main\java\com\formation\kafka\consumer\configuration\technical\ContainersConfiguration.java 
+
+```
+	private ConsumerFactory<String, CarMessage> carConsumerFactory() {
+		Map<String, Object> props = new HashMap<>();
+
+		// si application.yaml avec port
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getHost() + ":" + kafkaProperties.getPort());
+		// si application.yaml sans port
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getHost());
+
+		props.put(ConsumerConfig.GROUP_ID_CONFIG, topicProperties.getDefaultGroupId());
+		return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(CarMessage.class));
+	}
+```
+
+![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2017.PNG?raw=true)
