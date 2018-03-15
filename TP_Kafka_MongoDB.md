@@ -97,17 +97,37 @@ Visualisation des données sur MongoDB
 
 #### Configurer 2 brokers 
 
+Configurer fichier server-2.properties
 [voir TP initiation](https://github.com/ctith/Kafka/blob/master/TP_machine_locale.md)
-> Configurer fichier server-2.properties
-> Lancer le server dans un terminal
+
+Lancer le server dans un terminal
+```
+ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ vi config//server-1.properties
+```
 
 #### Créer un topic "killBroker" avec 2 brokers de réplication 2
 ```
 C:\Users\Fitec\kafka_2.11-1.0.1>bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 2 --partitions 2 --topic killBroker
 Created topic "killBroker".
+
+ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --list --zookeeper localhost:2181
+KafkaMongoDB
+__consumer_offsets
+car-test
+killBroker
+my-replicated-topic
+test
+test-consumer
+topic-in
+topic-out
+
+ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic killBroker
+Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
+        Topic: killBroker       Partition: 0    Leader: none    Replicas: 1,0   Isr:
+        Topic: killBroker       Partition: 1    Leader: none    Replicas: 0,1   Isr:
 ```
 
-#### Modifier le fichier application.yml (producer) en précisant le port des brokers
+##### Modifier le fichier application.yml (producer) en précisant le port des brokers
 ```
 kafka:
   bootstrap-servers: localhost:9092, localhost:9093
@@ -126,7 +146,7 @@ server:
 
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2015.PNG?raw=true)
 
-#### Modifier le fichier application.yaml (consumer) en précisant le port des brokers
+##### Modifier le fichier application.yaml (consumer) en précisant le port des brokers
 ```
 server:
   port: 8000
@@ -148,7 +168,7 @@ spring:
 
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2016.PNG?raw=true)
 
-#### Modifier le fichier ContainersConfiguration.java 
+##### Modifier le fichier ContainersConfiguration.java 
 > C:\Users\Fitec\IdeaProjects\formationspringkafka\comformationspringkafkaconsumer\src\main\java\com\formation\kafka\consumer\configuration\technical\ContainersConfiguration.java 
 
 ```
