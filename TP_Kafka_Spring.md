@@ -4,27 +4,27 @@ Envoyer les données du Producer -> Kafka -> Consumer -> MongoDB
 ## Lancer MongoDB 
 
 ### Terminal 1 : lancer le server MongoDB
-```
+```shell
 C:\Program Files\MongoDB\Server\3.6\bin>mongod
 ```
 
 ### Terminal 2 : lancer le client port 27017
-```
+```shell
 C:\Program Files\MongoDB\Server\3.6\bin>mongo
 ```
 ## Lancer Kafka
 ### Terminal 3 : lancer zookeeper
-```
+```shell
 C:\Users\Fitec\kafka_2.11-1.0.1>bin\windows\zookeeper-server-start.bat config\zookeeper.properties
 ```
 
 ### Terminal 4 : lancer serveur kafka
-```
+```shell
 C:\Users\Fitec\kafka_2.11-1.0.1>bin\\windows\\kafka-server-start.bat config\\server.properties
 ```
 
 ### Terminal 5 : créer un topic "KafkaMongoDB"
-```
+```shell
 C:\Users\Fitec\kafka_2.11-1.0.1>bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic KafkaMongoDB
 Created topic "KafkaMongoDB".
 ```
@@ -32,7 +32,7 @@ Created topic "KafkaMongoDB".
 ## Lancer les applications sur IntelliJ
 ### Modifier les topics de application.yaml et application.yml
 #### Consumer : application.yaml
-```
+```yml
 kafka:
   bootstrap-servers: localhost:9092
   topic: KafkaMongoDB
@@ -49,7 +49,7 @@ server:
 ```
 
 #### Producer : application.yml
-```
+```yml
 kafka:
   bootstrap-servers: localhost:9092
   topic: KafkaMongoDB
@@ -105,14 +105,14 @@ Configurer fichier server-2.properties
 [voir TP initiation](https://github.com/ctith/Kafka/blob/master/TP_machine_locale.md)
 
 Lancer le server dans un terminal
-```
+```shell
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ vi config//server-1.properties
 ```
 
 #### Modifier les fichiers java pour préciser la présence de plusieurs brokers
 
 ##### Application.yml (producer)
-```
+```yml
 kafka:
   bootstrap-servers: localhost:9092, localhost:9093
   topic: killBroker
@@ -131,7 +131,7 @@ server:
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2015.PNG?raw=true)
 
 ##### Application.yaml (consumer) 
-```
+```yml
 server:
   port: 8000
 
@@ -155,7 +155,7 @@ spring:
 ##### Programme ContainersConfiguration.java 
 > C:\Users\Fitec\IdeaProjects\formationspringkafka\comformationspringkafkaconsumer\src\main\java\com\formation\kafka\consumer\configuration\technical\ContainersConfiguration.java 
 
-```
+```java
 	private ConsumerFactory<String, CarMessage> carConsumerFactory() {
 		Map<String, Object> props = new HashMap<>();
 
@@ -174,13 +174,13 @@ spring:
 #### Créer un topic "killBroker" avec 2 brokers de réplication 2
 
 Création du topic
-```
+```shell
 C:\Users\Fitec\kafka_2.11-1.0.1>bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 2 --partitions 2 --topic killBroker
 Created topic "killBroker".
 ```
 
 Liste de topic
-```
+```shell
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --list --zookeeper localhost:2181
 KafkaMongoDB
 __consumer_offsets
@@ -194,7 +194,7 @@ topic-out
 ```
 
 Ici, le topic a aucun server leader. Cela signifie qu'un des serveurs n'a pas été lancé.
-```
+```shell
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic killBroker
 Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
         Topic: killBroker       Partition: 0    Leader: none    Replicas: 1,0   Isr:
@@ -202,7 +202,7 @@ Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
 ```
 
 Après démarrage du 2ème serveur 
-```
+```shell
 ctith@L50T-048:/mnt/c/Users/Fitec/kafka_2.11-1.0.1$ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic killBroker
 Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
         Topic: killBroker       Partition: 0    Leader: 1       Replicas: 1,0   Isr: 1,0
