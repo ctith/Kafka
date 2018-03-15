@@ -80,3 +80,10 @@ Envoyer des données via le swagger en modifiant le champs Parameters puis cliqu
 ### Visualiser la création du topic et les données sur MongoDB
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%20050.PNG?raw=true)
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2005.PNG?raw=true)
+
+## Tests de performance
+
+### Flooding
+![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2012.PNG?raw=true)
+
+### Fault-tolerance
