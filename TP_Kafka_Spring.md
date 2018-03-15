@@ -1,4 +1,4 @@
-# TP Kafka vers MongoDB
+# TP Kafka Spring
 Envoyer les données du Producer -> Kafka -> Consumer -> MongoDB
 
 ## Lancer MongoDB 
@@ -82,16 +82,14 @@ Envoyer des données via le swagger en modifiant le champs Parameters puis cliqu
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2005.PNG?raw=true)
 
 --------------------------------
-
 ## Tests de performance
-
 -------------------------------
 
 ### Flooding
 Création d'une boucle pour envoyer 100 000 requêtes d'insertion de données à MongoDB
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2012.PNG?raw=true)
 
-WARN 
+WARN : cette erreur signifie qu'on a utilisé le server kafka pour un autre processus
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2014.PNG?raw=true)
 
 Visualisation des données sur MongoDB
@@ -198,3 +196,5 @@ Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
         Topic: killBroker       Partition: 0    Leader: none    Replicas: 1,0   Isr:
         Topic: killBroker       Partition: 1    Leader: none    Replicas: 0,1   Isr:
 ```
+
+
