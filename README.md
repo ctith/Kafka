@@ -16,13 +16,9 @@
   - Kafka Stream : à tester (incompatibilité SLF4J: Class path contains multiple SLF4J bindings avec IntelliJ Enterprise) 
   
 ## TP4 en machine locale : [dossier formationspringkafka](https://github.com/ctith/Kafka/tree/master/formationspringkafka)
-  - application.yaml : paramètres des topics
   - lancer ConsumerApplication
   - lancer FormationkafkaApplication
   - http://localhost:8077/swagger-ui.html
-  
-![](https://github.com/ctith/Kafka/blob/master/kafka%2001.PNG?raw=true)
-![](https://github.com/ctith/Kafka/blob/master/kafka%2002.PNG?raw=true)
-![](https://github.com/ctith/Kafka/blob/master/kafka%2003.PNG?raw=true)
+
   
   
