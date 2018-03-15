@@ -85,5 +85,6 @@ Envoyer des données via le swagger en modifiant le champs Parameters puis cliqu
 
 ### Flooding
 ![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2012.PNG?raw=true)
+![](https://github.com/ctith/Kafka/blob/master/Kafka_screenshot/kafka%2013.PNG?raw=true)
 
 ### Fault-tolerance
