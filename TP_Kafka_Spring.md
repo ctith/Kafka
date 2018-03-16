@@ -211,6 +211,7 @@ Topic:killBroker        PartitionCount:2        ReplicationFactor:2     Configs:
 
 #### Comment faire marcher les scripts
 
+0. Supprimer les dossiers logs dans C:/tmp/
 1. Run les deux programmes java "Producer" puis "Consumer"
 2. Rajouter une donnée via Swagger
 3. Regarder la bonne insertion des données sur l'interface MongoDB
